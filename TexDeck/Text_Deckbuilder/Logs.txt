@@ -1,0 +1,19 @@
+Day 1:
+    Got basic systems such as the deck, enemy and card libraries, and drawing functional.
+    TODO Next: Combat system
+Day 2:
+    UI done, hopefully Idiot proofed
+    Entering it in tera
+    TODO Next: Combat system, for real this time
+Day 3:
+    Combat system (Player attacks, Enemy attacks, enemy attack messages (both anouncing and performing), multi-turn sequences... Basicly everything), death message, win message, card and enemy IDs, other general troubbleshooting
+    TODO: Balance the combat system (so far we have 1 total pushover and one certin death fight), which will include figuring out the scale of numbers 
+          Make more types of enemies for more varied fights
+          Make multiple attacks per enemy (will have random attacks with different chances. So far each enemy has 1)
+          Make More card types for players
+          Make a system to gain cards/rest and heal between fights
+          Make multiple fights
+    General note:
+        I now have the core of the engine done, so the remainder of what needs to be done is now much more varied and much less linear, but should be less dense/hedache inducing from here on out
+    Testing/troubbleshooting:
+        Give to a certin friend of mine to see if they find any horrific bugs

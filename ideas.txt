@@ -1,0 +1,22 @@
+this is just to keep track of ideas for game mechanics
+
+
+Battle interface idea:
+
+
+
+Your enemy is planning to deal 5 damage and gain 3 block
+
+Hand:
+1) Shield
+    Gain 2 block
+2) Shield 
+    Gain 2 block
+3) Knife
+    Deal 1 damage
+4) Knife
+    Deal 1 damage
+5) Spoonfull of sugar
+    Helps the medicine go down
+
+Type a number 1-5 to select a card, then hit enter to confirm.

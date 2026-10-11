@@ -1,0 +1,29 @@
+Day 1:
+    Got basic systems such as the deck, enemy and card libraries, and drawing functional.
+    TODO Next: Combat system
+Day 2:
+    UI done, hopefully Idiot proofed
+    Entering it in tera
+    TODO Next: Combat system, for real this time
+Day 3:
+    Combat system (Player attacks, Enemy attacks, enemy attack messages (both anouncing and performing), multi-turn sequences... Basicly everything), death message, win message, card and enemy IDs, other general troubbleshooting
+    TODO: Balance the combat system (so far we have 1 total pushover and one certin death fight), which will include figuring out the scale of numbers 
+          Make more types of enemies for more varied fights
+          Make multiple attacks per enemy (will have random attacks with different chances. So far each enemy has 1)
+          Make More card types for players
+          Make a system to gain cards/rest and heal between fights
+          Make multiple fights
+    General note:
+        I now have the core of the engine done, so the remainder of what needs to be done is now much more varied and much less linear, but should be less dense/hedache inducing from here on out
+    Testing/troubbleshooting:
+        Give to a certin friend of mine to see if they find any horrific bugs
+Day 4, part 1:
+    Changed the starter deck, added a third enemy, added dificulty rankings to enemies, made card values mroe balanced, gave each enemy 2 possible attacks, added armor-bypass
+    Made the game a series of three fights of acending dificulty instead of just one battle
+    Checklist update:
+            ✔️Balance the combat system (so far we have 1 total pushover and one certin death fight), which will include figuring out the scale of numbers 
+            ✔️Make more types of enemies for more varied fights (I still intend to make even more, but I did add some more already today)
+            ✔️Make multiple attacks per enemy (will have random attacks with different chances. So far each enemy has 1)
+            Make More card types for players
+            Make a system to gain cards/rest and heal between fights
+            ✔️Make multiple fights

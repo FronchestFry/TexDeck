@@ -93,9 +93,27 @@ class Enemy:
             else:
                 print ("The goblin pulls back a bow at you.")
                 self.intended_atk = 1
+        elif self.id == 3:
+            if atkchoice in range(1,4):
+                print ("The slime inflates with air.")
+                self.intended_atk = 0
+            elif atkchoice in range (5,7):
+                print ("The slime makes a wet noise.")
+                self.intended_atk = 1
+            else:
+                print ("The slime gathers its mass to lunge")
+                self.intended_atk = 2
+        elif self.id == 4:
+            if atkchoice < 7:
+                print ("The slime gathers its mass to lunge")
+                self.intended_atk = 0
+            else:
+                print ("The slime ripples and swells.")
+                self.intended_atk = 1
 
 
     def attack_effect(self):
+        global Player_block
         if not self.skipturn == True:
             if self.id == 0:
                 if self.intended_atk == 0:
@@ -118,6 +136,26 @@ class Enemy:
                 elif self.intended_atk == 1:
                     print("The goblin fires its arrow.")
                     damageplayer(4)
+            elif self.id == 3:
+                if self.intended_atk == 0:
+                    print ("The slime bursts, spraying acid.")
+                    Player_block -= 1
+                    damageplayer(1)
+                elif self.intended_atk == 1:
+                    print("The slime spits a glob of acid, eating through your armor.")
+                    Player_block -= 7
+                elif self.intended_atk == 2:
+                    print("The slime slams into you.")
+                    damageplayer(4)
+            elif self.id == 4:
+                if self.intended_atk == 0:
+                    print ('The slime bumps you.')
+                    damageplayer(self.health)
+                elif self.intended_atk == 1:
+                    print('The slime begins to grow in size.')
+                    self.health += 5
+
+
         else:
             self.skipturn = False
             print (f"{self.name}'s Turn was lost as they stared at the centaur-taur in confustion. What's wrong with that thing?")
@@ -227,6 +265,7 @@ def combat_turn():
     for card in hand:
         card_num += 1
         print (f"{card_num}) {card.name}\n \t {card.description}")
+        sleep(.75)
     print()
 
     #list deck stats
@@ -248,6 +287,7 @@ def combat_turn():
     #Apply player card effects
     selected_card = hand[selected_card_index-1]
     selected_card.playcard()
+    sleep(1)
 
     #Apply enemy card effects & next turn/end combat
     if current_enemy.health > 0:
@@ -258,11 +298,42 @@ def combat_turn():
         else:
             tprint("You Died") 
     else:
-        print (f"You have slain the {current_enemy.name}. Glory to thee, saviour of the realm!")
+        print (f"You have slain the {current_enemy.name}. Glory to thee!")
         draw.clear()
         hand.clear()
         discard.clear()
         Player_block = 0
+
+def pickcards():
+    print ('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
+    sleep(1)
+    print ("Welcome to the shop! Here you will be able to pick new cards to add to your deck.")
+    sleep(1)
+    options = random.sample(Card_Library,3)
+    card_num = 0
+    for card in options:
+            card_num += 1
+            print (f"{card_num}) {card.name}\n \t {card.description}")
+            sleep(1)
+    print()
+    while True:
+        selected_card_index = input(f"Type a number 1-{len(options)} to select a card, then hit enter to confirm.\n")
+        try:
+            selected_card_index = int(selected_card_index)
+        except ValueError:
+            print ("That is not a number. Please try again.")
+        else:
+            if not selected_card_index in range(1,len(options)+1):
+                print ("There is not a card option in that slot. Please Select one of the presented options.")
+            else:
+                break
+
+    #Apply player card effects
+    selected_card = options[selected_card_index-1]
+    print(f"You have chosen to add the {selected_card.name} to your deck. I hope you make good use of it.")
+    deck.append(copy.deepcopy(selected_card))
+    print ('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
+    sleep(1)
 
 #Defining things
 Knife = Card ("Hot flamey sword", "Stabs people for three damage", 'a0')
@@ -273,6 +344,8 @@ Taur = Card ("Centaur-taur", 'Confuses the enemy', 's0')
 Target_Dummy = Enemy(6, "Practice Dummy", "Hit the dummy, dummy.", 0, 'easy')
 Dragon = Enemy(15, "Red Dragon", "Run while you still can.", 1, 'hard')
 Goblin = Enemy(10, "Goblin", "The default fantasy creature", 2, 'mid')
+Slime1 = Enemy(6, "Green Slime", "It reeks of acid", 3, 'mid')
+Slime2 = Enemy(4, "Red Slime", "Cut them down to size", 4, 'easy')
 
 #setup
 startercards = [Knife, Knife, Knife, Knife2, Shield, Shield, Shield, Taur]
@@ -284,5 +357,9 @@ random.shuffle(draw)
 
 #testing
 start_fight('easy')
+pickcards()
 start_fight('mid')
+pickcards()
 start_fight('hard')
+tprint("Congratulations!")
+print("You're our BIG WINNER! You have slain all the monsters! Great job!")

@@ -21,9 +21,13 @@ Day 4, part 1:
     Changed the starter deck, added a third enemy, added dificulty rankings to enemies, made card values mroe balanced, gave each enemy 2 possible attacks, added armor-bypass
     Made the game a series of three fights of acending dificulty instead of just one battle
     Checklist update:
-            ✔️Balance the combat system (so far we have 1 total pushover and one certin death fight), which will include figuring out the scale of numbers 
+            ✔️Balance the combat system, which will include figuring out the scale of numbers 
             ✔️Make more types of enemies for more varied fights (I still intend to make even more, but I did add some more already today)
             ✔️Make multiple attacks per enemy (will have random attacks with different chances. So far each enemy has 1)
             Make More card types for players
             Make a system to gain cards/rest and heal between fights
             ✔️Make multiple fights
+
+Day 4, part 2:
+    Added 2 more enemies, added card shops, added slight delays between combat options showing update
+    TODO: Make more card types, Make a rest or remove card option at the shops

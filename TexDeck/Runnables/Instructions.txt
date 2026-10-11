@@ -1,5 +1,0 @@
-To run on linux, simply download the file, then run it in terminal. It should not need elevated permissions. 
-It must be run in terminal, as it otherwise has nowhere to print to or take input from. If you have python, you can just download and run the .py in the main folder
-
-A web build can be found here -> https://colab.research.google.com/drive/1tOv6YmSUzfUQCbn6S9GJeMMKIg2i1Y5D?usp=sharing
-The web build will likely suffer a little in speed and quality due to being run in google colab, but I had no other way to make it web-runnable.

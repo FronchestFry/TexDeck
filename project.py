@@ -40,7 +40,7 @@ class Card:
             if self.id[1] == '0':
                 current_enemy.takedamage(3)
             elif self.id[1] == '1':
-                            current_enemy.takedamage(5)
+                current_enemy.takedamage(5)
             pass
         elif self.id[0] == "d":
             #defensive cards
@@ -243,14 +243,14 @@ def start_fight(dificulty):
     combat_turn()
 
 def combat_turn():
-    sleep(1)
+    sleep(.5)
     #List enemies current stats
     print (f"The {current_enemy.name} has {current_enemy.health} HP remaining, and has {current_enemy.defense} shield.")
-    sleep(1)
+    sleep(.5)
     #Get enemy's attack
     current_enemy.attack_desc()
     print()
-    sleep(1)
+    sleep(.5)
     #draw to hand size
     draw_cards(draw_size-len(hand))
 
@@ -258,14 +258,14 @@ def combat_turn():
     global Player_block
     print (f"You have {Player_HP} Health and {Player_block} defence remaining.")
     print()
-    sleep(1)
+    sleep(.5)
     #List players Hand
     print("Hand:")
     card_num = 0
     for card in hand:
         card_num += 1
         print (f"{card_num}) {card.name}\n \t {card.description}")
-        sleep(.75)
+        sleep(.25)
     print()
 
     #list deck stats
@@ -287,7 +287,7 @@ def combat_turn():
     #Apply player card effects
     selected_card = hand[selected_card_index-1]
     selected_card.playcard()
-    sleep(1)
+    sleep(.5)
 
     #Apply enemy card effects & next turn/end combat
     if current_enemy.health > 0:
@@ -297,6 +297,7 @@ def combat_turn():
             combat_turn()
         else:
             tprint("You Died") 
+            quit()
     else:
         print (f"You have slain the {current_enemy.name}. Glory to thee!")
         draw.clear()
@@ -306,15 +307,15 @@ def combat_turn():
 
 def pickcards():
     print ('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
-    sleep(1)
+    sleep(.5)
     print ("Welcome to the shop! Here you will be able to pick new cards to add to your deck.")
-    sleep(1)
+    sleep(.5)
     options = random.sample(Card_Library,3)
     card_num = 0
     for card in options:
             card_num += 1
             print (f"{card_num}) {card.name}\n \t {card.description}")
-            sleep(1)
+            sleep(.5)
     print()
     while True:
         selected_card_index = input(f"Type a number 1-{len(options)} to select a card, then hit enter to confirm.\n")
@@ -333,7 +334,7 @@ def pickcards():
     print(f"You have chosen to add the {selected_card.name} to your deck. I hope you make good use of it.")
     deck.append(copy.deepcopy(selected_card))
     print ('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
-    sleep(1)
+    sleep(.5)
 
 #Defining things
 Knife = Card ("Hot flamey sword", "Stabs people for three damage", 'a0')

@@ -31,3 +31,6 @@ Day 4, part 1:
 Day 4, part 2:
     Added 2 more enemies, added card shops, added slight delays between combat options showing update
     TODO: Make more card types, Make a rest or remove card option at the shops
+HOTFIX!!!!!:
+    Dying caused you to win fights instead of ending the game
+    also lowered the delay on printing a little

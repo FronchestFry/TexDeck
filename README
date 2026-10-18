@@ -1,3 +1,6 @@
 The "runables" folder has all the player-usable things. The instructions .txt has a link to the web version, and instructions for the linux version. My devlogs can be found in logs.txt, some early concept ideas in ideas.txt, and the code in project.py
 
 I intend to add more cards, enemies, and a longer story in future weeks, so this is just the start, and serves as more of an engine-demo than a final game, but I hope it's fun.
+
+A text-based deckbuilding game, inspired by slay the spire and Inscryption, produced in python. 
+Some card names and jokes are taken from various media I watch, such as the gravity falls episode "Dungeons, Dungeons, and more Dungeons".
